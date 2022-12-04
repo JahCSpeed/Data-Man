@@ -153,6 +153,16 @@ Text:4.0.3 Replace:4.0
 Text:4.0.3 Replace:4.0
 Text:4.0.3 Replace:4.0
 Text:4.0.3 Replace:4.0
+prop = list(data.keys())
+values = list(data.values())
+fig = plt.figure(figsize = (10, 5))
+ 
+plt.bar(prop, values, color ='maroon', width = 0.4)
+ 
+plt.xlabel("Property Magnitude")
+plt.ylabel("Average Age")
+plt.title("For people having Credit Amount more than 4000")
+plt.show()
 Text:4.0.3 Replace:4.0
 Text:4.0.3 Replace:4.0
 Text:4.0.3 Replace:4.0
@@ -160,6 +170,13 @@ Text:4.0.3 Replace:4.0
 Text:4.0.3 Replace:4.0
 Text:2.3.3 Replace:2.3
 Text:2.3.3 Replace:2.3
+np.random.seed(seed= 30)
+cmap = lib.cm.get_cmap('Spectral')
+color_dict = pd.Series({k:cmap(np.random.rand()) for k in df['country'].unique()})
+color_dict.name = 'color_dict'
+df = pd.merge(df,color_dict, how = "left",left_on= 'country',right_index=True)
+df.plot.scatter(x = 'longitude', y = 'latitude',s = 50,c = df['color_dict'])
+
 Text:4.0.3 Replace:4.0
 Text:4.0.3 Replace:4.0
 Text:4.0.3 Replace:4.0
@@ -172,6 +189,10 @@ Text:4.0.3 Replace:4.0
 Text:4.0.3 Replace:4.0
 Text:4.0.3 Replace:4.0
 Text:4.0.3 Replace:4.0
+print(groups)
+for key, item in temp:
+    print(key)
+    print(temp.get_group(key), "\n\n")
 Text:2.3.3 Replace:2.3
 Text:4.0.3 Replace:4.0
 Text:4.0.3 Replace:4.0
